@@ -8,6 +8,7 @@ public class Bullet : MonoBehaviour
     private Transform target;
     public int damage;
     public float speed = 70f;
+    public GameObject impactEffect;
     public void myTarget(Transform newTarget, int newDamage)
     {
         target = newTarget;
@@ -37,6 +38,8 @@ public class Bullet : MonoBehaviour
     }
     void hitTarget()
     {
+        GameObject myImpact = (GameObject)Instantiate(impactEffect, transform.position,transform.rotation);
+        Destroy(myImpact, 2.0f);
         EnemyMovement t = target.GetComponent<EnemyMovement>();
         t.hit(damage);
         Debug.Log("WE HIT " + target.GetInstanceID().ToString());
