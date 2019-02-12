@@ -16,9 +16,9 @@ public class Turret : MonoBehaviour
     public GameObject bullet;
     public Transform firePoint;
 
-
-    private Transform target;
-    private float fireCountDown=0f;
+    [Header("Debug options ONLY!")]
+    public Transform target;
+    public float fireCountDown=0f;
     void Start()
     {
         InvokeRepeating("updateTarget", 0f, 0.5f);
@@ -60,7 +60,7 @@ public class Turret : MonoBehaviour
         Quaternion lookRot = Quaternion.LookRotation(dir);
 
         Vector3 actRot = Quaternion.Lerp(partToRotate.rotation, lookRot, Time.deltaTime* rotSpeed).eulerAngles;
-        transform.rotation = Quaternion.Euler(0f, actRot.y,0f);
+        partToRotate.transform.rotation = Quaternion.Euler(0f, actRot.y,0f);
         if(fireCountDown <= 0f)
         {
             shoot();

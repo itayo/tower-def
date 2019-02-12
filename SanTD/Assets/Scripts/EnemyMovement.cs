@@ -8,12 +8,16 @@ public class EnemyMovement : MonoBehaviour
     public float speed = 100f;
     private Transform target;
     private int waypointIdx = 0;
+    public int hp = 5;
     void Start()
     {
         target = Waypoints.waypoints[waypointIdx];
     }
     public void hit(int dmg)
     {
+        hp -= dmg;
+        if (hp <= 0)
+            Destroy(gameObject);
         
     }
     void Update()

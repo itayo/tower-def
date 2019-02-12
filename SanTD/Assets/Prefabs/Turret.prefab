@@ -48,10 +48,13 @@ MonoBehaviour:
   range: 15
   rotSpeed: 10
   fireRate: 1
+  myDamage: 1
   enemyTag: ENEMY
   partToRotate: {fileID: 7790099810965550828}
   bullet: {fileID: 8870320684220103982, guid: cce2aa85ef185fa4ebbe0883cb498eb2, type: 3}
   firePoint: {fileID: 435934476682087288}
+  target: {fileID: 0}
+  fireCountDown: 0
 --- !u!1 &2981834904379235975
 GameObject:
   m_ObjectHideFlags: 0
