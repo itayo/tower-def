@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   range: 15
-  rotSpeed: 10
+  rotSpeed: 30
   fireRate: 1
   myDamage: 1
   enemyTag: ENEMY

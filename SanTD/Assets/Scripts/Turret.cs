@@ -56,16 +56,24 @@ public class Turret : MonoBehaviour
         {
             return;
         }
-        Vector3 dir = target.transform.position - transform.position;
+        Vector3 dir = target.transform.position - partToRotate.transform.position;
         Quaternion lookRot = Quaternion.LookRotation(dir);
 
         Vector3 actRot = Quaternion.Lerp(partToRotate.rotation, lookRot, Time.deltaTime* rotSpeed).eulerAngles;
         partToRotate.transform.rotation = Quaternion.Euler(0f, actRot.y,0f);
-        if(fireCountDown <= 0f)
+        if (fireCountDown <= 0f)
         {
-            shoot();
-            fireCountDown = 1.0f / fireRate;
+            float myAngle = Vector3.Angle(partToRotate.transform.forward, dir.normalized);
+            if (myAngle < 15.0f && myAngle >= -15.0f)
+            {
+                shoot();
+                fireCountDown = 1.0f / fireRate;
+            }
+            else
+                Debug.Log("Angle to wide : " + myAngle.ToString());
         }
+
+
     }
     void shoot()
     {

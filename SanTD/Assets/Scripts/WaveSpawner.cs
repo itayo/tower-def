@@ -29,7 +29,6 @@ public class WaveSpawner : MonoBehaviour
         waveId++;
         
         int enemiesToSpawn =  1;
-        Debug.Log("SENDING WAVE " + waveId.ToString() + " with " + enemiesToSpawn.ToString() + " enemies");
         for (int i = 0; i < enemiesToSpawn; i++)
         {
             spawnEnemy();

@@ -42,7 +42,6 @@ public class Bullet : MonoBehaviour
         Destroy(myImpact, 2.0f);
         EnemyMovement t = target.GetComponent<EnemyMovement>();
         t.hit(damage);
-        Debug.Log("WE HIT " + target.GetInstanceID().ToString());
         Destroy(gameObject);
     }
 }
